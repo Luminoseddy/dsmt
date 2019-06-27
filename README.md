@@ -1,4 +1,4 @@
-Web application suppose to monitor prices of items from stores such as Walmart, Nestbuy, Amazon and more. 
+Web application suppose to monitor prices of items from stores such as Walmart, Bestbuy, Amazon and more. 
 
 
 DEMO:
