@@ -2,7 +2,7 @@
 
 var express = require("express");
 var router  = express.Router({mergeParams: true});
-var Book    = require("../models/book");
+var Dropship    = require("../models/dropship");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
 
@@ -13,13 +13,13 @@ var middleware = require("../middleware");
 COMMENTS NEW
 ============================================ */
 router.get("/new", middleware.isLoggedIn, function(req, res){
-    // find book by id
+    // find dropshipper by id
     console.log(req.params.id);
-    Book.findById(req.params.id, function(err, book){
+    Dropship.findById(req.params.id, function(err, dropship){
         if(err){
             console.log(err);
         } else {
-             res.render("comments/new", {book: book});
+             res.render("comments/new", {dropship: dropship});
         }
     });
 });
@@ -31,13 +31,14 @@ COMMENTS CREATE
 ============================================ */
 router.post("/", middleware.isLoggedIn, function(req, res){
   //lookup book using ID
-  Book.findById(req.params.id, function(err, book){
+  Dropship.findById(req.params.id, function(err, dropship){
       if(err){
           console.log(err);
-          res.redirect("/books");
+          res.redirect("/dropships");
       } else {
         Comment.create(req.body.comment, function(err, comment){
           if(err){
+              req.flash("error", "Something went totally wrong..DATA 0110101")
               console.log(err);
           } else {
               // add username and id to comment
@@ -45,9 +46,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
               comment.author.username = req.user.username;
               // save comment
               comment.save();
-              book.comments.push(comment);
-              book.save();
-              res.redirect('/books/' + book._id);
+              dropship.comments.push(comment);
+              dropship.save();
+              req.flash("success", "Comment posted!")
+              res.redirect('/dropships/' + dropship._id);
           }
         });
       }
@@ -67,7 +69,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
             res.redirect("back");
             res.send("EDIT ROUTE ASEEREEEE");
         }else{
-            res.render("comments/edit", {book_id: req.params.id, comment: foundComment});
+            res.render("comments/edit", {dropship_id: req.params.id, comment: foundComment});
         }
     });
 });
@@ -83,7 +85,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
         if(err){
             res.redirect("back");
         }else{
-            res.redirect("/books/" + req.params.id);
+            res.redirect("/dropships/" + req.params.id);
         }
     });
 });
@@ -99,7 +101,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
        if(err){
             res.redirect("back");
        }else{
-           res.redirect("/books/" + req.params.id);
+           res.redirect("/dropships/" + req.params.id);
        }
    });
 });

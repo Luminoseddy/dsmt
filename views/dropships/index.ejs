@@ -1,0 +1,154 @@
+<!--This is how we link the classes with each other -->
+<!--Home Page-->
+
+<% include ../partials/header %>
+
+<section id="header" class="text-center" style="height: 100%">
+    <div class="bgMainNotLoggedIn">
+        <% if(!currentUser){ %>
+        
+<!--COMPLETE DON'T TOUCH-->
+        <div class="container">
+            <div class="d-inline-flex p-2 d-inline justfiy-content-center align-items-center mt-5">
+                <div class="card-landingPage col-sm-12">
+                    <img class="card-img-top" style="height: 30%; width: 20%;" src="http://clipart-library.com/images/yikA7yriE.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h1 class="card-title"> Dropshipping Management Platform</h1><hr>
+                        <p class="card-text"> Everything you need to know for your Drop Shipping business.</p><hr>
+                        <a href="/dropships/new">Start monitoring today!</a><hr>
+                        <h4 style="text: center; color: black; opacity: 0.6;">
+                            <div id="status"></div>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--COMPLETE DON'T TOUCH-->
+
+    </div> 
+        <!--User logged in, sees this -->
+        <% } else { %>
+        <div class="bgMainLoggedIn" style="height: auto">
+   
+            
+<!--COMPLETE DON'T TOUCH-->
+            <div class="container">
+                    <div class="d-inline-flex p-2 d-inline justfiy-content-center align-items-center" style="margin-top: 10%">
+                        <div class="card-landingPageLoggedin col-sm-12">
+                            <img class="card-img-top" style="height: 30%; width: 20%;" src="http://clipart-library.com/images/yikA7yriE.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h1 class="card-title"> Dropshipping Management Platform</h1><hr>
+                                <p class="card-text"> Everything you need to know for your Drop Shipping business.</p><hr>
+                                <a href="/dropships/new">Start monitoring today!</a><hr>
+                                <h4 style="text: center; color: black; opacity: 0.6;">
+                                    <div id="status"></div>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--COMPLETE DON'T TOUCH-->
+                  
+                  
+                  
+                  
+
+<div class="row text-center" style="display:flex; flex-wrap: wrap; ">
+        <% dropships.forEach(function(dropships){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail" >
+                    <div style="width: 40px; length: 60px;"><img class="thumbnail" src="<%= dropships.image %>"></div>
+                    <div class="caption"><h4><%= dropships.name %></h4> </div>
+                    <h6>Author: <%=dropships.bookAuthor%></h6>
+                   <!--.substring(0, 75) -->
+                    <div class="well"><%= dropships.description%>... 
+                        <p></p> <!--To give a gapping/spacing underneath. -->
+                        <p><a href="/dropships/<%= dropships._id %>" class="btn btn-primary">Read more</a> </p>
+                    </div> 
+                    <p><em><%= dropships.author.username %> owns this book.</em></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+
+<!--FOR DEMO PURPOSES: -->
+<!--<div class="d-inline-flex p-2 d-inline justfiy-content-center align-items-center mt-5" style=" margin-left: 24%">-->
+<!--    <div class="row" style="border-radius: 12px; ">-->
+<!--        <div class="card-deck" style="width: 70%">-->
+<!--          <div class="card-demoPics col-sm-4">-->
+<!--            <img class="card-img-top" style="height: 30%; width: 40%;" src="http://clipart-library.com/images/yikA7yriE.png" alt="Card image cap">-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Demo show</h5>-->
+<!--              <p class="card-text">Testing purposes.. 1, 2, 3</p>-->
+<!--            </div>-->
+<!--            <div class="card-footer">-->
+<!--              <small class="text-muted">Last updated 3 mins ago</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="card-demoPics col-sm-4">-->
+<!--            <img class="card-img-top" style="height: 30%; width: 40%;" src="http://clipart-library.com/images/yikA7yriE.png" alt="Card image cap">-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Demo show</h5>-->
+<!--              <p class="card-text">Testing purposes.. 1, 2, 3</p>-->
+<!--            </div>-->
+<!--            <div class="card-footer">-->
+<!--              <small class="text-muted">Last updated 3 mins ago</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="card-demoPics col-sm-4">-->
+<!--            <img class="card-img-top" style="height: 30%; width: 40%;" src="http://clipart-library.com/images/yikA7yriE.png" alt="Card image cap">-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Demo show</h5>-->
+<!--              <p class="card-text">Testing purposes.. 1, 2, 3</p>-->
+<!--            </div>-->
+<!--            <div class="card-footer">-->
+<!--              <small class="text-muted">Last updated 3 mins ago</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--    </div> -->
+<!--</div>-->
+<!--FOR DEMO PURPOSES: -->
+
+
+
+
+
+        <% } %>  <!--End of else-->
+    </div> 
+    
+                
+    <!--To Call it: <div id="status"></div -->
+    <script "text/javascript"> 
+        var counter = 6;
+        // var myVar = setInterval(myTimer, 60000);
+        myTimer();
+        function countDown(secs,elem)
+        {
+            var text = ["Stock Management", 
+                        "Store optimization", 
+                        "Advanced Image Editor", 
+                        "Assitive Google Chrome",
+                        "Multi-Vender Lister",
+                        "Management Dashboard",
+                        "Smart filters and bulker operations"];
+                        
+        	var element = document.getElementById(elem);
+        	element.innerHTML =  text[secs];
+        	if(secs== 6){  
+        	   secs = 0;
+        	   element.innerHTML = text[0];
+        	}
+            secs++;
+        	var timer = setTimeout('countDown('+secs+',"'+elem+'")', 1000);
+        }
+        
+        function myTimer(){
+          countDown(counter,"status");
+        }
+    </script>
+</section>
+
+
+<% include ../partials/footer %>

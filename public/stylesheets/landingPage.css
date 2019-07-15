@@ -1,0 +1,381 @@
+/*================================================================================================*
+ *                                          Navigation Bar                                        *
+ *================================================================================================*/
+.btn{
+    margin: 3px;
+    text-align: center;
+    background-color: #FFC312;
+    font-size: 16;
+    width: 100px;
+    border-radius: 12px;
+}
+
+ul,                   /* Make all ul's have a list style of none: no bullets */
+nav {
+	list-style: none; /* We don't want to see bullet points. */
+}
+
+/*We gave an id to navBar: #mainNavbar*/
+#mainNavbar{
+    font-size:1.5rem;
+    font-weight: 100; 
+    text-align: center;
+    background: rgba(76, 175, 80, 0.2); /* Green background with 30% opacity; */
+    width: 100%;
+}
+
+#mainNavbar .nav-link:hover {  /*sudo selector: hover*/
+    background-color: #ADD8E6;
+    color: #EA1C2C;            /* This changes the text */
+    border-radius: 6px;
+    /*padding-left: 100%;*/
+    /*margin-left: -100%;*/
+}
+/*Under id= .navbar-link
+  w/    class= navbar-link */
+#mainNavbar .nav-link{
+    color: black;
+    
+}
+/*Under id= mainNavbar
+  w/    class= navbar-brand */
+#mainNavbar .navbar-brand{
+    color: #EA1C2C;
+}
+/*================================================================================================*/
+
+
+/*================================================================================================*
+ *                                Navigation Bar Dropdown                                         *
+ *================================================================================================*/
+/* Dropdown Button */
+.dropbtn {
+  background-color: #FFD700;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.9);
+  /*z-index: -1;*/
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    margin-left: 4%;
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: black;
+    
+}
+/*================================================================================================*/
+
+
+/*================================================================================================*
+ *                                Backgrounds for front page                                      *
+ *================================================================================================*/
+
+/*Backgrounds for front page */
+.bgMainNotLoggedIn {
+  /* The image used */
+  background-image: url("https://images.pexels.com/photos/403575/pexels-photo-403575.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  display:             flex;
+  flex-direction:      column;  
+  align-items:         center;
+}
+
+.bgMainLoggedIn {
+  /* The image used */
+  background-image: url("https://images.pexels.com/photos/403575/pexels-photo-403575.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  height: auto;
+  width: 100%;
+  background-position: center;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  display:             flex;
+  flex-direction:      column;  
+  align-items:         center;
+}
+
+.bgTiers{
+    background-image: url("https://usersthink.com/img/99-free-images-large/30-usersthink-stock-image.jpg");
+    height: auto;
+    background-position: center;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    display:             flex;
+    flex-direction:      column;  
+    align-items:         center;
+}
+
+.bgStores{
+    background-image: url("https://usersthink.com/img/99-free-images-large/15-usersthink-stock-image.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    display:             flex;
+    flex-direction:      column;  
+    align-items:         center;
+}
+
+/*For everything inside the body and html*/
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Belleza', sans-serif;
+  /*margin: 0px;*/
+  padding: 0px;
+  overflow-x: hidden; 
+  min-width: 400px;
+  position: relative;
+  margin: 0 auto;
+  /*padding-bottom: 20px;*/
+  /* background-color: #C8FCFF; */
+}
+
+
+
+.container{
+    border-radius: 25px;
+    border-color: black;
+    /*font-family: 'Belleza', sans-serif;*/
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: black;
+}
+
+.whiteFonts {
+    color: white;
+}
+/*================================================================================================*/
+
+
+/*================================================================================================*
+ *                                     Responsive breakpoints                                     *
+ *================================================================================================*/
+ /* Update flex basis for list items in grid */
+@media (max-width: 1200px){
+    .packages .grid li{
+        font-weight: 100;
+        font-size: 1rem;
+        flex-basis: 100%;  /* Set the base to 100% */
+        padding: 10px;     /* Shrinking the padding */
+    }
+}
+
+
+
+
+ /*Extra small devices (portrait phones, less than 576px)
+   No media query since this is the default in Bootstrap*/
+   
+ /*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px){ 
+        decreaseFontSize{
+        font-size: 3rem;
+    } 
+    
+}
+ /*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px){  
+    decreaseFontSize{
+        font-size: 3rem;
+    } 
+}
+ /*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px){  
+        decreaseFontSize{
+        font-size: 3rem;
+    } 
+}
+ /*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px){
+        decreaseFontSize{
+        font-size: 3rem;
+    } 
+}
+/*================================================================================================*/
+
+
+/** For all classes that contain 'icon' do this. **/
+/*icon {
+    font-size: 3em; /* double size of the icon */
+/*}*/
+
+/*The # presents 'id', meaning we can declare this by id="conent" */
+#content {
+    text-align: center;
+    padding-top: 10%;      /* Brings down the text from the navbar */
+    padding-bottom: 15%;
+}
+
+#loginPage {
+    position: absolute;
+    width: auto;
+    min-width: 400px;
+    max-width: 400px;
+}
+
+
+#alerts{ 
+    align-content: center;
+    position: fixed;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: auto;
+    max-width: 100%;
+
+
+}
+
+p{
+    color: black;
+}
+
+
+hr {
+    width: 100%;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Transparency */
+}
+
+.section{
+    background-position: center; /* Center and scale the image nicely */
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    flex-direction:      column; /* layout */
+    align-items:         center;
+    height:              100%;
+    display:             flex;
+	/*padding:             100px 80px;     Removes the white spacing from section to section */
+}
+
+
+/* General rule that stripes the sections.
+   exluding the hero section, We want each sections to alternate background colors white/black */
+section:not(.hero):nth-child(even){
+    /*background-color: #FA8072;*/
+    /*background-image: url("https://images.pexels.com/photos/1445416/pexels-photo-1445416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");*/
+    /*background-image: url("https://images.pexels.com/photos/509922/pexels-photo-509922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");*/
+}
+
+.button-box {
+   text-align:center;
+   margin-top:20px;
+}
+
+/* .grid class  */
+.grid {
+    width: 100%;             /* Set width to 100% */
+    display: flex;           /* Enable flex box */
+    flex-wrap: wrap;         /* Allow the content to be wrapped */
+    justify-content: center; /* Center the content. */
+}
+
+/*
+ * ======================================================================================================================
+ * Package Section
+ * ====================================================================================================================== */
+/* Style up the list items inside the packages grid */
+.packages .grid li {
+    padding: 50px;      /* Give the list items padding*/
+    flex-basis: 50%;    /* Set the list items flex basis*/
+    text-align: center; /* Center the text */
+}
+
+/* Change font color for each icon */
+.packages .grid li i {
+    color: #8c9eff;
+}
+
+/* Bump up the font size from the h4 elements */
+/*.packages .grid li h4 {*/
+  /*  font-size: 30px; /* Set font size of 30px 
+    margin: 25px 0;  /* Set margins from top and bottom */
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+img{
+    position: relative;
+    width: 250px;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding: 5px;*/
+  
+}
+
+
+
+blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 5em+;
+}
+
+/*For id = " "*/
+#delete-form{
+    display: inline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

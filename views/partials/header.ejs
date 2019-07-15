@@ -1,30 +1,156 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Bookstore</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>DropshippingTools</title>
+        <!-- Google links / Google fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Belleza">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
+        
+        
+        <!--mBootstrap links -->
+        <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        
+        <!--Stylesheets-->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/view.css">
         <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/loginSignup.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/landingPage.css">
+        
+        
+        <!--Bootstrap CSS-->
+        <!--This removes the colors around the buttons.-->
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" -->
+        <!--      crossorigin="anonymous">-->
+              
+        
+        <!--Needed for the login, register, more.. -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        
+        <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.js"></script>
     </head>
     <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/books">Bookstore</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <% if(!currentUser){ %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign up</a></li>
-                    <% } else { %>
-                        <li><a href="#">Signed in as: <%= currentUser.username %></a></li>
-                        <li><a href="/logout">Logout</a></li>
-                    <% } %>
+
+    <!--Header section -->
+    <!--We give nav an id, incase we have more than 1 nav. That way we use the id as a pointer.-->
+
+    <nav id="mainNavbar" class="navbar navbar-light navbar-expand-xl fixed-top" style="background-color: #e3f2fd;">
+        <div class="container-fluid" >
+            <!--Brand-logo of navbar-->
+            <a href="/dropships" class="navbar-brand p-2">
+                <i class="fa fa-rebel" aria-hidden="true"></i> DropshippingTools<span class="sr-only">(current)</span>
+            </a>
+            
+            <!--Creates the toggle-button when screensize shrinks at lg-->
+            <button class="navbar-toggler" 
+                    data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation" type="button" aria-hidden="false" >  
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+         
+            <!--The things that happen when navbar shrinks.-->
+            <div class="collapse navbar-collapse text-left ml-2" id="navLinks">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/dropships">Home     </a></li><div class="dropdown-divider"></div>
+                    <li class="nav-item"><a class="nav-link" href="/dropships">Features </a></li><div class="dropdown-divider"></div>
+                    <li class="nav-item"><a class="nav-link" href="/dropships">Pricing  </a></li><div class="dropdown-divider"></div>
+                    <li class="nav-item"><a class="nav-link" href="/dropships">Blog     </a></li><div class="dropdown-divider"></div>
+                    <li class="nav-item"><a class="nav-link" href="/dropships">Help     </a></li><div class="dropdown-divider"></div>
+                    <li class="nav-item"><a class="nav-link" href="/dropships">Contact  </a></li>
                 </ul>
+                
+                <!--Margin left auto-->
+                <div class="ml-auto"> 
+                    <% if(!currentUser){ %>
+                          <li class="btn"><a href="/login"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
+                          <li class="btn"><a href="/register">Sign up</a></li>
+                          
+                    <% } else { %>
+                            <a href="#">Signed in as: <%= currentUser.username %></a>
+                            <li class="btn btn-warning"><a href="/logout"><i class="fa fa-user" aria-hidden="true"></i> Logout</a></li>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" 
+                                        data-toggle="dropdown" id="dropdownMenuButton" type="button"  aria-haspopup="true" aria-expanded="false">
+                                     <i class="fa fa-key" aria-hidden="true"></i> DSM
+                                </button>
+                                
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/dropships">Dashboard</a>
+                                    <a class="dropdown-item" href="/dropships">Templates</a>
+                                    <a class="dropdown-item" href="/dropships">Rapid Lister</a>
+                                    <a class="dropdown-item" href="/dropships">Price Monitor</a>
+                                    <a class="dropdown-item" href="/dropships">Sales & Orders</a>
+                                    <a class="dropdown-item" href="/dropships">DSM for Chrome</a>
+                                    <a class="dropdown-item" href="/dropships">Help Center</a>
+                                </div>
+                            </div>   
+                    <% } %>
+                </div>
             </div>
         </div>
     </nav>
+    
+    
+    
+    
+  <!--p-xl-5: from extra large and up, apply padding 5-->
+    <div id="alerts" class="container-fluid justify-content-center p-5">
+        <div class="col-12">
+        <!--This basically checks if theres a text-->
+            <% if (success && success.length > 0) { %>
+                <div class="alert alert-success text-center" role="alert">
+                    <%= success %> 
+                </div>
+            <% } %>
+         </div>  
+         
+         <div class="col-12">
+            <% if (error && error.length > 0) { %>
+                <div class="alert alert-danger text-center" role="alert">
+                    <%= error %> 
+                    
+                </div>
+            <% } %>
+        </div>
+    </div>
+    
 
+
+   
+	
+
+
+    
+ 
+    
+    
+      
+    
+    
+    
+       
         
-        
+    
+    
+    
+    
+    
+   
+    
+
+    
+   
+
+    
+    
+    
+                

@@ -2,53 +2,53 @@
 <% include ./partials/header %>
 <div class="container">
     <div class="row">
-        <h1 style="text-align: center">Edit <%= book.name %></h1>
+        <h1 style="text-align: center">Edit <%= dropship.name %></h1>
         <div style="width: 30%; margin: 25px auto;">
-            <form action="/books/<%= book._id %>?_method=PUT" method="POST">
+            <form action="/dropships/<%= dropship._id %>?_method=PUT" method="POST">
                 <div class="form-group">
                     <label>Image</label>
-                    <input class = "form-control" type="text" name="book[image]" value="<%= book.image %>">
+                    <input class = "form-control" type="text" name="dropship[image]" value="<%= dropship.image %>">
                 </div>
                 
                 <div class="form-group">
                     <label>Name</label>
-                    <input class = "form-control" type="text" name="book[name]" value="<%= book.name %>">
+                    <input class = "form-control" type="text" name="dropship[name]" value="<%= dropship.name %>">
                 </div>
                 
                 <div class="form-group">
                     <label>Author</label>
-                    <input class = "form-control" type="text" name="book[bookAuthor]" value="<%= book.bookAuthor %>">
+                    <input class = "form-control" type="text" name="dropship[dropshipAuthor]" value="<%= dropship.dropshipAuthor %>">
                 </div>
                 
                 <div class="form-group" style= width: "30%">
                     <label>Bio</label>
-                    <input class = "form-control" type="text" name="book[bio]" value="<%=book.bio %>">
+                    <input class = "form-control" type="text" name="dropship[bio]" value="<%=dropship.bio %>">
                 </div>
                 
                 <div class="form-group">
                     <label>Book description</label>
-                    <input class = "form-control" type="text" name="book[description]" value="<%= book.description %>">
+                    <input class = "form-control" type="text" name="dropship[description]" value="<%= dropship.description %>">
                     
                 </div>
                 
                 <div class="form-group" style= width: "30%">
                     <label>Genre</label>
-                    <input class = "form-control" type="text" name="book[genre]" value="<%= book.genre %>">
+                    <input class = "form-control" type="text" name="dropship[genre]" value="<%= dropship.genre %>">
                 </div>
                 
                 <div class="form-group">
                     <label>Published Info.</label>
-                    <input class = "form-control" type="text" name="book[publishedInfo]" value="<%= book.publishedInfo %>">
+                    <input class = "form-control" type="text" name="dropship[publishedInfo]" value="<%= dropship.publishedInfo %>">
                 </div>
                 
                 <div class="form-group">
                     <label>Ratings</label>
-                    <input class = "form-control" type="text" name="book[rating]" value="<%= book.rating %>">
+                    <input class = "form-control" type="text" name="dropship[rating]" value="<%= dropship.rating %>">
                 </div>
                 
                 <div class="form-group">
                     <label>Comments</label>
-                    <input class = "form-control" type="text" name="comment[text]" value="<%= book.comments %>">
+                    <input class = "form-control" type="text" name="comment[text]" value="<%= dropship.comments %>">
                 </div>
                 
                 <div class="form-group">
@@ -56,7 +56,7 @@
                 </div>
                                 
             </form>
-            <a href="/books">Go Back</a>
+            <a href="/dropships">Go Back</a>
         </div>
     </div>
 </div>

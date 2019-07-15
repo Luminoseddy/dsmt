@@ -1,0 +1,55 @@
+<!--RestulfulBookApp-->
+<% include ../partials/header %>
+
+<div class ="container" style="margin-top: 50px;">
+    <header class="jumbotron">
+        <div>
+
+        <h1 style="text-align: center">Search for a new item to monitor.</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/dropships" method="POST">
+                <!--<div class="form-group">-->
+                <!--    <input class="form-control" type="text" name="name" placeholder="name:">-->
+                <!--</div>-->
+                
+                <div class="form-group">
+                    <input class="form-control" type="text" name="image" placeholder="url">
+                </div>
+                
+                <!--<div class="form-group">-->
+                <!--    <input class="form-control" type="text" name="description" placeholder="description">-->
+                <!--</div> -->
+                
+                <!--<div class="form-group">-->
+                <!--    <input class = "form-control" type="text" name="dropshipAuthor" placeholder="dropshipAuthor">-->
+                <!--</div>-->
+                
+                <!--<div class="form-group">-->
+                <!--    <input class = "form-control" type="text" name="bio" placeholder="bio">-->
+                <!--</div>-->
+                
+                <!--<div class="form-group">-->
+                <!--    <input class = "form-control" type="text" name="genre" placeholder="genre">-->
+                <!--</div>-->
+                
+                <!--<div class="form-group">-->
+                <!--    <input class = "form-control" type="text" name="publishedInfo" placeholder="publishedInfo">-->
+                <!--</div>-->
+                
+                <!--<div class="form-group">-->
+                <!--    <input class = "form-control" type="text" name="rating" placeholder="rating">-->
+                <!--</div>-->
+                
+                <!--<div class="form-group">-->
+                <!--    <button class="btn btn-lg btn-primary btn-block">Submit!</button>-->
+                <!--</div>-->
+            </form>
+            <a href="/dropships">Go Back</a>
+        </div>
+        </header>
+    </div>
+</div>
+<% include ../partials/footer %>
+
+
+

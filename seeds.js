@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var Book = require("./models/book");
+var Dropship = require("./models/dropship");
 var Comment = require("./models/comment");
 
 var data = []
@@ -11,15 +11,15 @@ var data = []
 // This gets executed into the app.js class into seedDB();
 // Wipes out the database
 function seedDB(){
-    // Book.remove({}, function(err){
-    //     console.log("remove books");
+    // Dropship.remove({}, function(err){
+    //     console.log("remove items");
     //     if(err){
     //         console.log(err);
     //     }
-    //     console.log("removed books!");
-        // Add few books
+    //     console.log("removed items!!");
+        // Add few items
         data.forEach(function(seed){
-            Book.create(seed, function(err, book){
+            Dropship.create(seed, function(err, dropship){
                 if(err){
                     console.log(err);
                 } else{
@@ -33,15 +33,15 @@ function seedDB(){
                             if(err){
                                 console.log(err);
                             }else{
-                                book.comments.push(comment);
-                                book.save();
-                                console.log("New comment has been created")
+                                dropship.comments.push(comment);
+                                dropship.save();
+                                console.log("New comment has been created");
                             }
                             
                         });
                 }
             });
-        // }); // This is with Book.remove({})
+        // }); // This is with Dropship.remove({})
     });
 // add few comments
 }

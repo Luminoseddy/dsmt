@@ -7,7 +7,7 @@ var User     = require("../models/user");
 
 //root route
 router.get("/", function(req, res){
-    res.render("books"); // this was "landing"
+    res.render("dropships"); // this was "landing"
 });
 
 // show register form
@@ -21,39 +21,47 @@ router.post("/register", function(req, res){
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
+            req.flash("error", "Data not found.");
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-          res.redirect("/books"); 
+          req.flash("success", "Account " + user.username + " has been registered!");
+          res.redirect("/dropships"); 
         });
     });
 });
 
 //show login form
 router.get("/login", function(req, res){
-  res.render("login"); 
+  res.render("login", {message: req.flash("error")}); 
 });
 
 //handling login logic
 router.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/books",
+        successRedirect: "/dropships",
         failureRedirect: "/login"
     }), function(req, res){
 });
 
+
+
 // logout route
 router.get("/logout", function(req, res){
-  req.logout();
-  res.redirect("/books");
+  req.logout(); 
+  req.flash("success", "You have succesfully logged out."); // Do this before redirecting.
+  res.redirect("/dropships");
 });
 
+
+
 //middleware
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
+// Moved to the middleware file 
+// function isLoggedIn(req, res, next){
+//     if(req.isAuthenticated()){
+//         return next();
+//     }
+//     res.redirect("/login");
+// }
 
 module.exports = router;
